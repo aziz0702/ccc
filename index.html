@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>موقع البنك</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>مرحباً بك في موقع البنك</h1>
+
+        <!-- نموذج تسجيل العميل -->
+        <form id="registrationForm">
+            <label for="name">ادخل لقبك:</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="guild">اختر نقابة:</label>
+            <select id="guild" name="guild" required>
+                <option value="" disabled selected>اختر النقابة</option>
+                <option value="A">أ</option>
+                <option value="B">ب</option>
+                <option value="T">ت</option>
+                <option value="Th">ث</option>
+            </select>
+
+            <label for="password">ادخل كلمة المرور:</label>
+            <input type="password" id="password" name="password" placeholder="Enter password..." class="password" required>
+
+            <label for="confirmPassword">تاكيد كلمة المرور:</label>
+            <input type="password" id="confirmPassword" name="confirmPassword" placeholder="Confirm password..." class="password" required>
+
+            <button type="submit">تسجيل الحساب</button>
+        </form>
+
+        <!-- رسالة تبديل بين التسجيل وتسجيل الدخول تظهر فقط في صفحة التسجيل -->
+        <p id="registrationMessage">هل لديك حساب؟ <button id="switchToLogin">تسجيل الدخول</button></p>
+
+        <!-- نموذج تسجيل الدخول -->
+        <div id="loginForm" style="display:none;">
+            <label for="loginName">اسم المستخدم:</label>
+            <input type="text" id="loginName" name="loginName" required>
+
+            <label for="loginPassword">كلمة المرور:</label>
+            <input type="password" id="loginPassword" name="loginPassword" required>
+
+            <button id="loginButton">تسجيل الدخول</button>
+        </div>
+
+        <!-- رسالة الترحيب بعد تسجيل الدخول -->
+        <div id="welcomeMessage" style="display:none;">
+            <h2>مرحباً، <span id="userName"></span></h2>
+            <p>رصيد حسابك هو: <span id="accountBalance">0</span> ريال</p>
+            <!-- زر تسجيل الخروج -->
+            <button id="logoutButton" style="display:none;">تسجيل الخروج</button>
+        </div>
+
+        <!-- لوحة التحكم الخاصة بالمشرف، مخفية حتى يتم التحقق من الحساب -->
+        <div id="adminPanel" style="display: none;">
+            <h2>لوحة تحكم المشرف</h2>
+            
+            <label for="clientName">اسم العميل:</label>
+            <input type="text" id="clientName" name="clientName" required>
+
+            <label for="adminBalance">الرصيد الجديد:</label>
+            <input type="number" id="adminBalance" name="adminBalance" required>
+
+            <button id="updateBalanceButton">تعديل الرصيد</button>
+
+            <!-- زر تسجيل الخروج للمشرف -->
+            <button id="adminLogoutButton" style="display:none;">تسجيل الخروج من لوحة المشرف</button>
+        </div>
+
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
